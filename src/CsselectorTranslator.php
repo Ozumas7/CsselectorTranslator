@@ -17,7 +17,7 @@ class CsselectorTranslator
      */
     private $query;
 
-    static protected $ELEMENTREGEX = "/(?<type>[.#)]{1})?(?<typename>[\w_\-\d]{1,})(?<selector>:[\w\-\(\)0-9]*)?(?<attrs>\[(.*\]))?(?<union>[>+~ ,.#]{1})?/";
+    static protected $ELEMENTREGEX = "/(?<type>[.#)]{1})?(?<typename>[\w_\-\d]{1,})(?<selector>:{1,2}[\w\-\(\)0-9]*)?(?<attrs>\[(.*\]))?(?<union>[>+~ ,.#]{1})?/";
 
 
     public function __construct(string $query)

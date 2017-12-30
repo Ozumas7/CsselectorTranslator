@@ -24,14 +24,23 @@ class CsselectorTranslatorTest extends AbstractTestClass
 
         $this->assertTrue(sizeof($elements[0]->getClasses())===4);
     }
-
+    /**
+     *
+     */
+    public function testMultipleClassAndIdElement()
+    {
+        $query = "p.one.two.three.four#id";
+        $elements = $this->getTranslator($query);
+        $this->assertTrue(sizeof($elements[0]->getClasses())===4);
+        $this->assertTrue($elements[0]->getId()==="id");
+    }
     /**
      *
      */
     public function testElementSelector()
     {
         $selector1 = ":first-child";
-        $selector2 = ":nth-child(2)";
+        $selector2 = "::nth-child(2)";
 
         $query = "p$selector1 li$selector2";
         $elements = $this->getTranslator($query);
